@@ -5,14 +5,8 @@
 
 :root {
   --logo-green: #b8d682;
-  --logo-blue: #81a4b2;
+  --logo-blue: #81a4b2; /* 129,164,178 */
   --main-white: white;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 html {
@@ -26,13 +20,7 @@ body {
 }
 
 h1 {
-  font-size: 2.5rem;
-  margin-top: 20px;
-}
-
-h2 {
-  font-size: 1.8rem;
-  margin-top: 20px;
+  font-size: 3.5rem;
 }
 
 p {
@@ -44,6 +32,12 @@ a {
   text-decoration: none;
 }
 
+.icon {
+  vertical-align: middle;
+  width: 16px;
+  height: 16px;
+}
+
 /*****************/
 /* Header Styles*/
 /*****************/
@@ -53,6 +47,7 @@ header {
   height: 100px;
   position: fixed;
   top: 0;
+  z-index: 100;
   padding: 0px 20px;
   display: flex;
   justify-content: space-around;
@@ -119,16 +114,37 @@ nav ul li a:hover {
 
 @media (max-width: 600px) {
   header {
-    width: 100%;
+    position: absolute;
+    top: 0;
+    flex-wrap: wrap;
+    width: 90%;
     height: 200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
     background-color: var(--main-white);
   }
   .logo {
+    position: relative;
+    top: 0;
+    height: 100px;
     width: 100%;
   }
+  nav {
+    padding: 0 50px;
+    align-items: center;
+    font-size: 1.9rem;
+  }
+  nav ul {
+    /* list-style: none; */
+    display: flex;
+    flex-direction: column;
+  }
+  nav li {
+    padding-bottom: 5px;
+  }
+
+  /* header * {
+    border: 1px solid red;
+  } */
 }
 
 /*****************/
@@ -136,21 +152,111 @@ nav ul li a:hover {
 /*****************/
 
 main {
-  margin: 105px 30px 20px;
+  margin: 103px 30px 20px;
 }
 
-ul {
-  margin-left: 25px;
-  list-style: circle;
+.hero {
+  text-align: center;
 }
 
-ul li {
-  font-size: 1.6rem;
+.quick-contact {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.quick-contact * {
+  margin: auto 3px;
+}
+
+p.center {
+  display: flex;
+  align-items: center;
+}
+
+.slideshow-container {
+  max-width: 700px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.slide {
+  display: none;
+}
+
+div.slide > img {
+  width: 100%;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.slide-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 6px;
+  border-radius: 6px;
+  background-color: rgba(255,255,255, .6);
+  text-align: center;
+  font-size: 2rem;
+}
+
+/* Number text (1/6 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
 }
 
 @media (max-width: 600px) {
   main {
-    margin-top: 205px;
+    margin-top: 215px;
   }
 }
 
@@ -171,7 +277,6 @@ footer {
 .grid-container {
   display: flex;
   flex-flow: row wrap;
-  /* flex-wrap: wrap; */
   gap: 1em;
 }
 
@@ -194,11 +299,6 @@ footer iframe {
 
 .flex-box * {
   margin: 0 5px;
-}
-
-.flex-box img {
-  width: 16px;
-  height: 16px;
 }
 
 @media (max-width: 768px) {
