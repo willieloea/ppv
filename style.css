@@ -276,6 +276,7 @@ div.slide > img {
 .dots {
   text-align: center;
   width: 700px;
+  margin: auto auto;
 }
 
 /* The dots/bullets/indicators */
