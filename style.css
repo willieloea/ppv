@@ -206,6 +206,10 @@ p.center:hover {
   div.quick-contact * {
     margin: 4px auto;
   }
+
+  p.center {
+    padding-left: 8px;
+  }
 }
 
 .slideshow-container {
